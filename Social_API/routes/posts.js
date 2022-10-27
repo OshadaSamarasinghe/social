@@ -36,7 +36,7 @@ router.delete("/:id", async(req,res)=>{
         const post = await Post.findById(req.params.id);
         if (post.userId === req.body.userId) {
             await post.deleteOne();
-            res.status(200).json("Post hass been Updated");
+            res.status(200).json("Post hass been Deleted");
         } else {
             res.status(403).json("You can only update your post");
         }
