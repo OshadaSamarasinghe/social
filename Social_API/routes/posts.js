@@ -38,7 +38,7 @@ router.delete("/:id", async(req,res)=>{
             await post.deleteOne();
             res.status(200).json("Post hass been Deleted");
         } else {
-            res.status(403).json("You can only update your post");
+            res.status(403).json("You can only delete your post");
         }
     } catch (err) {
         res.status(500).json(err);
