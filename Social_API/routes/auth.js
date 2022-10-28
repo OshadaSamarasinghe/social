@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const { json } = require("express");
 
 // Register
+
 router.post("/register", async(req,res)=>{
     try{
         const salt = await bcrypt.genSalt(10);
@@ -19,7 +20,9 @@ router.post("/register", async(req,res)=>{
         res.status(500).json(err)
     }
 });
+
 // Login
+
 router.post("/login", async(req,res)=>{
     try{
         // check email
@@ -34,4 +37,5 @@ router.post("/login", async(req,res)=>{
         res.status(500).json(err);
     }
 });
+
 module.exports = router;
