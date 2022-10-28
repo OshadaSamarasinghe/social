@@ -73,4 +73,5 @@ router.get("/:id",async(req,res)=>{
     }
 });
 
+// get timeline posts
 module.exports = router;
