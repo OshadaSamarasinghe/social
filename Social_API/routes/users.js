@@ -4,6 +4,7 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
 // Update users
+
 router.put("/:id", async(req,res)=>{
     if (req.body.userId === req.params.id || req.body.isAdmin) {
         if (req.body.password) {
@@ -26,7 +27,9 @@ router.put("/:id", async(req,res)=>{
         return res.status(403).json("you can update only your account");
     }
 });
+
 // delete users
+
 router.delete("/:id", async(req,res)=>{
     if (req.body.userId === req.params.id || req.body.isAdmin) {
         try {
@@ -41,6 +44,7 @@ router.delete("/:id", async(req,res)=>{
 });
 
 // get user
+
 router.get("/:id", async(req,res)=>{
     try {
         const user = await User.findById(req.params.id);
@@ -52,6 +56,7 @@ router.get("/:id", async(req,res)=>{
 });
 
 // following users
+
 router.put("/:id/follow", async(req,res)=>{
     if (req.body.userId !== req.params.id){
         try {
@@ -73,6 +78,7 @@ router.put("/:id/follow", async(req,res)=>{
 });
 
 // unfollowing users
+
 router.put("/:id/unfollow", async(req,res)=>{
     if (req.body.userId !== req.params.id){
         try {
