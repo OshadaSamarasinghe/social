@@ -1,0 +1,32 @@
+#log_side{
+    float: right;
+    width: 50%;
+    background-color: #394B63;
+    height: 100%;
+}
+#reg_des{
+    float: left;
+    width: 50%;
+    background-color: #70E2CB;
+    height: 100%;
+}
+#reg_text{
+    background-color: antiquewhite;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+#log_text{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+#signinbtn{
+    border: none;
+    border-radius: 15px;
+    background-color: #70E2CB;
+    font-size: large;
+    
+}
