@@ -1,8 +1,5 @@
 <div class="col-lg-5">
     <h1 class="h1-strong">{{title}}</h1>
-    <div class="alert alert-success" *ngIf="status == 'success'">
-        Successful login, welcome!
-    </div>
     <div class="alert alert-danger" *ngIf="status == 'error'">
         Login failed: email or password invalid.
     </div>
@@ -19,4 +16,7 @@
         </p>
         <input type="submit" value="Login" class="btn btn-success" [disabled]="!loginForm.form.valid">
     </form>
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Successful login, welcome!
+    </div>
 </div>

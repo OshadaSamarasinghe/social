@@ -11,7 +11,7 @@
     "local": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mauro Bonfietti",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
