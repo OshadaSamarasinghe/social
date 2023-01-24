@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows
 
     strategy:
       matrix:
@@ -26,6 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: Social_Back\package-lock.json
+        cache-dependency-path: Social_Back/package-lock.json
     - run: npm ci
     - run: npm test
