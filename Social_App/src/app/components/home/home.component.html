@@ -1,12 +1,18 @@
 <div class="col-lg-8 col-lg-offset-2">
-    <div class="jumbotron">
+    <div class="jumbotron" >
         <h1>{{title}}</h1>
-        <p>Yes, Another Social Web App</p>
+        <p *ngIf="!identity">Please Login to Continue 😊</p>
+        <p *ngIf="identity">Share you life and make new Friends 😎<br>Enjoy</p>
+        <br>
         <p *ngIf="identity">
+            <a class="btn btn-success btn-lg" role="button" [routerLink]="['/timeline']" [routerLinkActive]="['active']">Continue to Posts</a>
+        </p>
+        <img src="assets/Social_01.png" *ngIf="identity">
+        <!-- <p *ngIf="identity">
             <a class="btn btn-success btn-lg" role="button" [routerLink]="['/timeline']" [routerLinkActive]="['active']">Posts</a>
             <a class="btn btn-default btn-lg" role="button" [routerLink]="['/gente']" [routerLinkActive]="['active']">Find Friends</a>
             <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/mensajes']" [routerLinkActive]="['active']">Messages</a>
-        </p>
-        <img src="assets/social-3.png" />
+        </p> -->
+        <img src="assets/social-3.png" *ngIf="!identity">
     </div>
 </div>
