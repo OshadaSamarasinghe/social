@@ -1,0 +1,39 @@
+<div class="col-lg-5">
+    <h1 class="h1-strong">{{title}}</h1>
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Updated successfully.
+    </div>
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Error when saving changes.
+    </div>
+    <form #userEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
+        <p>
+            <label>First Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required />
+            <span *ngIf="!name.value && name.touched" >First name is required.</span>
+        </p>
+        <p>
+            <label>Last Name</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" required />
+            <span *ngIf="!surname.value && surname.touched" >Last name is required.</span>
+        </p>
+        <p>
+            <label>Nickname</label>
+            <input type="text" name="nick" #nick="ngModel" [(ngModel)]="user.nick" class="form-control" required />
+            <span *ngIf="!nick.value && nick.touched" >Nickname is required.</span>
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required />
+            <span *ngIf="!email.value && email.touched" >Invalid email</span>
+        </p>
+        <div class="user-image-for-edit" *ngIf="user.image">
+            <img src="{{ url + 'get-image-user/' + user.image}}" />
+        </div>
+        <p>
+            <label>Profile photo</label>
+            <input type="file" placeholder="Upload image" (change)="fileChangeEvent($event)" />
+        </p>
+        <input type="submit" value="Save Changes" class="btn btn-warning" [disabled]="!userEditForm.form.valid" />
+    </form>
+</div>
