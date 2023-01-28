@@ -18,7 +18,7 @@ function saveUser(req, res) {
         user.nick = params.nick;
         user.email = params.email;
         user.role = 'ROLE_USER';
-        user.image = null;
+        user.image = "null";
         User.find({$or: [
                 {email: user.email.toLowerCase()},
                 {nick: user.nick.toLowerCase()}

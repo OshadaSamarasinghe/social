@@ -10,6 +10,7 @@ var Follow = require('../models/follow');
 
 function savePublication(req, res) {
     var params = req.body;
+    var image_name = req.files.upload.name;
     if (!params.text)
         return res.status(200).send({message: "Text field is required."});
 
@@ -124,18 +125,20 @@ function uploadImage(req, res) {
                             return res.status(404).send({message: "Publication Not Found."});
                         if (err)
                             return res.status(500).send({message: "Request Error."});
-
-                        return res.status(200).send({publication: publicationUpdated});
+                        else{
+                            return res.status(200).send({publication: publicationUpdated});
+                        }
+                        
                     });
                 } else {
                     return removeFilesOfUploads(res, file_path, "You do not have permissions to modify this publication.");
                 }
             });
         } else {
-            return removeFilesOfUploads(res, file_path, "Ups, please upload a valid image file.");
+            return removeFilesOfUploads(res, file_path, "Oops, please upload a valid image file.");
         }
     } else {
-        return res.status(200).send({message: "Ups, please upload any file."});
+        return res.status(200).send({message: "Oops, please upload any file."});
     }
 }
 
@@ -152,7 +155,7 @@ function getImageFile(req, res) {
         if (exists) {
             res.sendFile(path.resolve(path_file));
         } else {
-            return res.status(200).send({message: "Ups, the file not exists."});
+            return res.status(200).send({message: "Oops, the file not exists."});
         }
     });
 }
