@@ -10,13 +10,14 @@ var Follow = require('../models/follow');
 
 function savePublication(req, res) {
     var params = req.body;
-    var image_name = req.files.upload.name;
+    // var filePath = fs.basename(req.files.post.path);
+    // var fileName = filePath.split('\\').pop();
     if (!params.text)
         return res.status(200).send({message: "Text field is required."});
 
     var publication = new Publication();
     publication.text = params.text;
-    publication.file = 'null';
+    publication.file = params.file;
     publication.user = req.user.sub;
     publication.created_at = moment().unix();
     publication.save((err, publicationStored) => {
