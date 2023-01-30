@@ -11,8 +11,8 @@
     "e2e": "ng e2e"
   },
   "engines": {
-    "node": "16.17.0",
-    "npm": "8.15.0"
+    "node": "9.5.0",
+    "npm": "6.0.0"
   },
   "private": true,
   "dependencies": {
